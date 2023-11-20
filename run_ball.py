@@ -1,16 +1,18 @@
 import turtle
 from ball import *
 
-
-def Defualt():
-    num_balls = int(input("Number of balls to simulate: "))
+def turtle_setup():
     turtle.speed(0)
     turtle.tracer(0)
     turtle.hideturtle()
+    turtle.colormode(255)
+
+def Defualt():
+    num_balls = int(input("Number of balls to simulate: "))
+    turtle_setup()
     canvas_width = turtle.screensize()[0]
     canvas_height = turtle.screensize()[1]
     ball_radius = 0.05 * canvas_width
-    turtle.colormode(255)
     color_list = []
     xpos = []
     ypos = []
@@ -32,10 +34,7 @@ def Defualt():
 
 def Test():
     num_balls = int(input("Number of balls to simulate: "))
-    turtle.speed(0)
-    turtle.tracer(0)
-    turtle.hideturtle()
-    turtle.colormode(255)
+    turtle_setup()
     balls = []
     for ball in range(num_balls):
         balls += [Ball()]
@@ -46,6 +45,7 @@ def Test():
             ball.move_ball()
             ball.draw_ball()
         turtle.update()
+    turtle.done()
 
 
 Test()
