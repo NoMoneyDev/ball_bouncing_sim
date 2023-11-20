@@ -44,8 +44,8 @@ class Ball:
         self.canvas_height = canvas_height
         self.xpos = random.randint(int(-1*canvas_width + ball_radius), int(canvas_width - ball_radius))
         self.ypos = random.randint(int(-1*canvas_height + ball_radius), int(canvas_height - ball_radius))
-        self.vx = 0
-        self.vy = 0
+        self.vx = random.randint(1, int(0.01*canvas_width))
+        self.vy = random.randint(1, int(0.01*canvas_height))
         self.ball_color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
         self.ball_radius = ball_radius
         
@@ -62,7 +62,7 @@ class Ball:
     def move_ball(self):
         # update the x, y coordinates of ball i with velocity in the x (vx) and y (vy) components
         self.xpos += self.vx
-        self.ypos  += self.vy
+        self.ypos += self.vy
 
         # if the ball hits the side walls, reverse the vx velocity
         if abs(self.xpos + self.vx) > (self.canvas_width - self.ball_radius):
